@@ -17,6 +17,10 @@ module.exports = {
         }
       }
     },
+    fontFamily: {
+      poppins: ['Poppins', 'sans-serif'],
+      sans: ['ui-sans-serif', 'system-ui']
+    }
   },
   plugins: [],
 }
