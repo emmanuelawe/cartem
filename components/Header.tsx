@@ -3,7 +3,7 @@ import Image from 'next/image'
 import React from 'react'
 import Cartem from '../public/cartem.png'
 import {ArrowDownIcon, MenuIcon, SearchIcon, ShoppingCartIcon} from '@heroicons/react/outline'
-import {VscTriangleDown} from 'react-icons/Vsc'
+import {VscTriangleDown} from 'react-icons/vsc'
 
 const Header = () => {
 return (
