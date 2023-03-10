@@ -27,7 +27,7 @@ return (
         </div>
         <input type='text' 
         placeholder='Search Cartem'
-        className='p-4 h-full w-6 flex-grow flex-shrink focus:outline-none px-4 ' />
+        className='p-4 h-full w-6 flex-grow flex-shrink focus:outline-none px-4' />
         <SearchIcon className='h-12 p-3' />
     </div>
 
