@@ -7,14 +7,24 @@ interface Props {
   products: Product[],
   id?: string,
   title?: string,
-  price?: number,
+  price?: any,
   description?: string,
   category?: string,
-  image?: string,
+  image?: any,
   rating?: {string : number},
 }
 
-const Homepage = ({products}: any) => {
+const fetchProducts = async () => {
+  const productsResponse = await fetch("https://fakestoreapi.com/products", {
+    cache: 'no-store'
+  })
+
+  return productsResponse.json()
+}
+
+const Homepage = async () => {
+  const products = await fetchProducts()
+
   return (
     <div>
       <main className='max-w-screen-2xl mx-auto'>
@@ -22,8 +32,8 @@ const Homepage = ({products}: any) => {
         <Banner />
 
         {/* Product Feed */}
-        {/* <ProductFeed products={products} /> */}
-        <p>{products}</p>
+        <ProductFeed products={products} />
+        {/* <p>{products}</p> */}
       </main>
     </div>
   )
@@ -31,13 +41,13 @@ const Homepage = ({products}: any) => {
 
 export default Homepage
 
-export async function getServerSideProps(context: any) {
-  const products = await fetch("https://fakestoreapi.com/products").then(
-    (res) => res.json()
-  )
-return {
-    props: { 
-      products,
-    }
-}
-}
+// export async function getServerSideProps(context: any) {
+//   const products = await fetch("https://fakestoreapi.com/products").then(
+//     (res) => res.json()
+//   )
+// return {
+//     props: { 
+//       products,
+//     }
+// }
+// }

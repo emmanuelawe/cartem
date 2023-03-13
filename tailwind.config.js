@@ -22,5 +22,7 @@ module.exports = {
       sans: ['ui-sans-serif', 'system-ui']
     }
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/line-clamp')
+  ],
 }
