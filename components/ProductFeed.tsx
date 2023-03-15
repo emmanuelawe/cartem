@@ -1,6 +1,6 @@
 'use client'
 
-import { GetServerSidePropsContext } from "next"
+// import { GetServerSidePropsContext } from "next"
 import Product from "./Product"
 
 interface Props {
@@ -16,12 +16,14 @@ interface Props {
 }
 
 const ProductFeed = ({products}: Props) => {
+  
+
   return (
     <div className="grid grid-flow-row-dense md:grid-cols-2 lg:grid-cols-3 
      md:-mt-52 mx-auto">
       {products
       .slice(0,6)
-      .map(({id, title, price, description, category, image }: any) => (
+      .map(({id, title, price, description, category, image, rating }: any) => (
         <Product key={id} 
         id={id}
         title={title}

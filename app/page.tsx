@@ -1,18 +1,18 @@
 import Banner from '@/components/Banner'
 import ProductFeed from '@/components/ProductFeed'
-import React from 'react'
+import React, { useEffect } from 'react'
 
 
-interface Props {
-  products: Product[],
-  id?: string,
-  title?: string,
-  price?: any,
-  description?: string,
-  category?: string,
-  image?: any,
-  rating?: {string : number},
-}
+// interface Props {
+//   products: Product[],
+//   id?: string,
+//   title?: string,
+//   price?: any,
+//   description?: string,
+//   category?: string,
+//   image?: any,
+//   rating?: {string : number},
+// }
 
 const fetchProducts = async () => {
   const productsResponse = await fetch("https://fakestoreapi.com/products", {
@@ -21,6 +21,8 @@ const fetchProducts = async () => {
 
   return productsResponse.json()
 }
+
+
 
 const Homepage = async () => {
   const products = await fetchProducts()

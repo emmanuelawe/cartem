@@ -4,8 +4,8 @@ import Image from "next/image"
 import { useState } from "react"
 import Currency from 'react-currency-formatter';
 
-const MAX_RATING = 5
-const MIN_RATING = 1
+// const MAX_RATING = 5
+// const MIN_RATING = 1
 
 interface Props {
     products?: Product[],
@@ -20,11 +20,11 @@ interface Props {
   }
   
 
-const Product = ({id, title, price, description, category, image}: Props) => {
-  const [rating] = useState(
-    Math.floor(Math.random() * (MAX_RATING - MIN_RATING + 1) + MIN_RATING
+const Product = ({id, title, price, description, category, image}: any) => {
+  // FIX THIS LATER
+  const [rating] = useState(4
+    // Math.floor(Math.random() * (MAX_RATING - MIN_RATING + 1)) + MIN_RATING
     )
-  )
 
   return (
     <div className="relative flex flex-col bg-white m-5 z-30 p-10">
