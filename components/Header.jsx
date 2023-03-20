@@ -4,8 +4,12 @@ import React from 'react'
 import Cartem from '../public/cartem.png'
 import {ArrowDownIcon, MenuIcon, SearchIcon, ShoppingCartIcon} from '@heroicons/react/outline'
 import {VscTriangleDown} from 'react-icons/vsc'
+import {signIn, signOut, useSession} from 'next-auth/react'
+
 
 const Header = () => {
+// const [session] = useSession()
+
 return (
 <header className=''>
     {/* Top Nav */}
@@ -34,8 +38,11 @@ return (
     {/* Right Side */}
     <div className='text-white flex items-center text-xs space-x-6 mx-6 whitespace-nowrap'>
 
-        <div className='link'>
-        <p>Hello, CHASE</p>
+        <div onClick={() => signIn()}  className='link'>
+        <p>
+        Hello, CHASE
+            {/* {session ? `Hello, ${session.user.name}` : 'Sign In'} */}
+        </p>
         <p className='font-bold md:text-sm'>Account & Lists</p>
         </div>
 

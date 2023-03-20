@@ -25,7 +25,7 @@ const fetchProducts = async () => {
 
 
 const Homepage = async () => {
-  const products = await fetchProducts()
+  // const products = await fetchProducts()
 
   return (
     <div>
@@ -34,7 +34,7 @@ const Homepage = async () => {
         <Banner />
 
         {/* Product Feed */}
-        <ProductFeed products={products} />
+        {/* <ProductFeed products={products} /> */}
         {/* <p>{products}</p> */}
       </main>
     </div>
