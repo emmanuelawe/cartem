@@ -3,16 +3,16 @@ import ProductFeed from '@/components/ProductFeed'
 import React, { useEffect } from 'react'
 
 
-// interface Props {
-//   products: Product[],
-//   id?: string,
-//   title?: string,
-//   price?: any,
-//   description?: string,
-//   category?: string,
-//   image?: any,
-//   rating?: {string : number},
-// }
+interface Props {
+  products: Product[],
+  id?: string,
+  title?: string,
+  price?: any,
+  description?: string,
+  category?: string,
+  image?: any,
+  rating?: {string : number},
+}
 
 const fetchProducts = async () => {
   const productsResponse = await fetch("https://fakestoreapi.com/products", {
@@ -25,7 +25,7 @@ const fetchProducts = async () => {
 
 
 const Homepage = async () => {
-  // const products = await fetchProducts()
+  const products = await fetchProducts()
 
   return (
     <div>
@@ -34,7 +34,7 @@ const Homepage = async () => {
         <Banner />
 
         {/* Product Feed */}
-        {/* <ProductFeed products={products} /> */}
+        <ProductFeed products={products} />
         {/* <p>{products}</p> */}
       </main>
     </div>
