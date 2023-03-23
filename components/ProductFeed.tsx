@@ -4,7 +4,7 @@
 import Product from "./Product"
 
 interface Props {
-  products: Product[],
+  products: Product,
   id?: string,
   title?: string,
   price?: any,
@@ -15,7 +15,7 @@ interface Props {
   key?: () => JSX.Element
 }
 
-const ProductFeed = ({products}: Props) => {
+const ProductFeed = ({products}: any) => {
   
 
   return (

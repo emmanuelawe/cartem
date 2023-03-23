@@ -4,7 +4,7 @@ import React, { useEffect } from 'react'
 
 
 interface Props {
-  products: Product[],
+  products: Product,
   id?: string,
   title?: string,
   price?: any,
@@ -25,7 +25,7 @@ const fetchProducts = async () => {
 
 
 const Homepage = async () => {
-  const products = await fetchProducts()
+  const products: any = await fetchProducts()
 
   return (
     <div>
