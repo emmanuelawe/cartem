@@ -5,17 +5,21 @@ import Cartem from '../public/cartem.png'
 import {ArrowDownIcon, MenuIcon, SearchIcon, ShoppingCartIcon} from '@heroicons/react/outline'
 import {VscTriangleDown} from 'react-icons/vsc'
 import {signIn, signOut, useSession} from 'next-auth/react'
+import { useRouter } from 'next/navigation'
 
 
 const Header = () => {
 const {data: session} = useSession()
+const router = useRouter()
 
 return (
 <header className=''>
     {/* Top Nav */}
     <div className='flex items-center bg-cartem_black-dark p-1 flex-grow py-4'>
     <div className='flex items-center flex-grow sm:flex-grow-0 px-4'>
-        <Image src={Cartem} alt='Cartem Logo'
+        <Image 
+        onClick={() => router.push("/")}
+        src={Cartem} alt='Cartem Logo'
         width={90} height={30} style={{objectFit: 'contain'}}
         className='cursor-pointer'
             />
@@ -38,8 +42,8 @@ return (
     {/* Right Side */}
     <div className='text-white flex items-center text-xs space-x-6 mx-6 whitespace-nowrap'>
 
-        <div onClick={() => signIn('google')}  className='link'>
-        <p>
+        <div onClick={!session ? signIn : signOut}  className='link'>
+        <p className='hover:underline'>
         {/* Hello, CHASE */}
             {session ? `Hello, ${session.user.name}` : 'Sign In'}
         </p>
@@ -51,12 +55,15 @@ return (
         <p className='font-bold md:text-sm'>& Orders</p>
         </div>
 
-        <div className='relative link flex items-center'>
+        <div 
+        onClick={() => router.push("/checkout")}
+        className='relative link flex items-center'>
 
         <span className='absolute top-0 
         right-0 md:right-6 h-4 w-4 rounded-full text-center font-bold text-[#222222] bg-[#F15E22]'>0</span>
 
-        <ShoppingCartIcon className='h-10' />
+        <ShoppingCartIcon 
+         className='h-9 md:h-10' />
         <p className='hidden md:inline font-bold md:text-sm mt-2'>Cart</p>
         </div>
 

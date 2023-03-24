@@ -18,14 +18,15 @@ const fetchProducts = async () => {
   const productsResponse = await fetch("https://fakestoreapi.com/products", {
     cache: 'no-store'
   })
+  const productsMain = await productsResponse.json()
 
-  return productsResponse.json()
+  return productsMain
 }
 
 
 
 const Homepage = async () => {
-  const products: any = await fetchProducts()
+  const products = await fetchProducts()
 
   return (
     <div>
