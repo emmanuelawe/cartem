@@ -6,11 +6,14 @@ import {ArrowDownIcon, MenuIcon, SearchIcon, ShoppingCartIcon} from '@heroicons/
 import {VscTriangleDown} from 'react-icons/vsc'
 import {signIn, signOut, useSession} from 'next-auth/react'
 import { useRouter } from 'next/navigation'
+import { useSelector } from 'react-redux'
+import { selectItems } from '@/redux/slices/basketSlice'
 
 
 const Header = () => {
 const {data: session} = useSession()
 const router = useRouter()
+const items = useSelector(selectItems)
 
 return (
 <header className=''>
@@ -60,7 +63,9 @@ return (
         className='relative link flex items-center'>
 
         <span className='absolute top-0 
-        right-0 md:right-6 h-4 w-4 rounded-full text-center font-bold text-[#222222] bg-[#F15E22]'>0</span>
+        right-0 md:right-6 h-4 w-4 rounded-full text-center font-bold text-[#222222] bg-[#F15E22]'>
+            {items.length}
+        </span>
 
         <ShoppingCartIcon 
          className='h-9 md:h-10' />

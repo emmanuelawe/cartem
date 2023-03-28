@@ -1,7 +1,12 @@
+'use client'
+import CheckoutProduct from '@/components/CheckoutProduct'
+import { selectItems } from '@/redux/slices/basketSlice'
 import Image from 'next/image'
 import React from 'react'
+import { useSelector } from 'react-redux'
 
-const page = () => {
+const CheckoutPage = () => {
+  const items = useSelector(selectItems)
   return (
     <div className='h-screen'>
       
@@ -16,7 +21,23 @@ const page = () => {
        />
 
     <div className='flex flex-col p-5 space-y-10 bg-white'>
-      <h1 className='text-3xl border-b pb-4'>Your Shopping Basket</h1>
+      <h1 className='text-3xl border-b pb-4'>
+        {items.length === 0 ? 'Your Cartem cart is empty.' :
+        'Shopping Cart'}
+      </h1>
+
+        {items.map((item : any, i: any) => (
+          <CheckoutProduct 
+          key={i}
+          id={item.id} 
+          title={item.title} 
+          price={item.price} 
+          description={item.description} 
+          category={item.category} 
+          image={item.image}
+          />
+        ))}
+
     </div>
 
     </div>
@@ -32,4 +53,4 @@ const page = () => {
   )
 }
 
-export default page
+export default CheckoutPage

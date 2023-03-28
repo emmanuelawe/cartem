@@ -3,6 +3,8 @@ import { SessionProvider } from '@/components/SessionProvider'
 import { authOptions } from '@/pages/api/auth/[...nextauth]'
 import { getServerSession } from 'next-auth'
 import './globals.css'
+import { store } from '../redux/store'
+import { Providers } from '../provider'
 
 export const metadata = {
   title: 'Cartem Store',
@@ -20,12 +22,14 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body>
+        <Providers>
         <SessionProvider session={session}>
         <Header />
         <main className='bg-gray-100'>
         {children}
         </main>
         </SessionProvider>
+        </Providers>
         </body>
     </html>
   )

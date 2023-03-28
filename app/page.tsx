@@ -1,3 +1,4 @@
+// 'use client'
 import Banner from '@/components/Banner'
 import ProductFeed from '@/components/ProductFeed'
 import React, { useEffect } from 'react'
